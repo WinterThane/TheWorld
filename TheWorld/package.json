@@ -3,6 +3,7 @@
   "name": "asp.net",
   "private": true,
   "dependencies": {
+    "jquery-validation-unobtrusive": "^3.2.9",
     "underscore": "~1.9.0"
   }
 }

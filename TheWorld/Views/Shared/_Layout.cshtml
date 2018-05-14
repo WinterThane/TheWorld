@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>The World - @ViewBag.Title</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <div id="sidebar">
+        <img class="userpic" src="~/img/image.png" alt="User picture" />
+        <span id="usename">Winter Name</span>
+
+        <ul class="menu">
+            <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
+            <li><a asp-controller="App" asp-action="About">About</a></li>
+            <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <div id="wrapper">
+        <div id="main">
+            <div>
+                <button id="sidebarToggle">Hide menu</button>
+            </div>
+
+            @RenderBody()
+
+        </div>
+        <div id="footer">
+            &copy; 2018 Winter
+        </div>
+    </div>
+    <script src="~/script/jquery.min.js"></script>
+    @RenderSection("scripts", false)
+    
+    <script type="text/javascript" src="~/script/site.js"></script>
+
+</body>
+</html>
