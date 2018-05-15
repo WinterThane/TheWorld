@@ -5,28 +5,39 @@
 }
 
 @section scripts {
-    <script src="~/script/jquery.validate.min.js"></script>
-    <script src="~/script/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
 }
 
-<h2>Contact</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Contact</h2>
 
-<form method="post">
-    <span asp-validation-summary="ModelOnly"></span>
-    @if (ViewBag.UserMessage != null)
-    {
-        <div>@ViewBag.UserMessage</div>
-    }
-    <label asp-for="Name"></label>
-    <input asp-for="Name" />
-    <span asp-validation-for="Name"></span>
-    <label asp-for="Email"></label>
-    <input type="email" asp-for="Email" />
-    <span asp-validation-for="Email"></span>
-    <label asp-for="Message"></label>
-    <textarea asp-for="Message" cols="40" rows="4"></textarea>
-    <span asp-validation-for="Message"></span>
-    <div>
-        <input type="submit" value="Send Message" />
+            <form method="post">
+                <span asp-validation-summary="ModelOnly"></span>
+                @if (ViewBag.UserMessage != null)
+                {
+                    <div>@ViewBag.UserMessage</div>
+                }
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-muted"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input type="email" asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-muted"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Message"></label>
+                        <textarea asp-for="Message" cols="40" rows="4" class="form-control"></textarea>
+                        <span asp-validation-for="Message" class="text-muted"></span>
+                    </div>
+                <div class="form-group">
+                    <input type="submit" value="Send Message" class="btn btn-success" />
+                    <a asp-controller="App" asp-action="Index" class="btn btn-light">Cancel</a>
+                </div>
+            </form>
+        </div>
     </div>
-</form>

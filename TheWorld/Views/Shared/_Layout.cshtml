@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <title>The World - @ViewBag.Title</title>
-
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootswatch/dist/yeti/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -12,7 +14,7 @@
         <img class="userpic" src="~/img/image.png" alt="User picture" />
         <span id="usename">Winter Name</span>
 
-        <ul class="menu">
+        <ul class="nav-link">
             <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
             <li><a asp-controller="App" asp-action="About">About</a></li>
             <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
@@ -20,22 +22,44 @@
     </div>
 
     <div id="wrapper">
-        <div id="main">
-            <div>
-                <button id="sidebarToggle">Hide menu</button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <button id="sidebarToggle" class="btn btn-primary btn-sm">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                    </li>
+                </ul>
+                <a asp-controller="App" asp-action="Index" class="navbar-brand mr-auto">The World</a>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" class="btn btn-sm btn-info">
+                            <i class="fa fa-save"></i> Save
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-sm btn-info">
+                            <i class="fa fa-print"></i> Print
+                        </a>
+                    </li>
+                </ul>
             </div>
-
-            @RenderBody()
-
+        </nav>
+        <div id="main" class="container-fluid">
+            <div>
+                @RenderBody()
+            </div>
         </div>
         <div id="footer">
-            &copy; 2018 Winter
+            <div class="navbar fixed-bottom bg-primary">
+                <h4 class="text-info">&copy; 2018 Winter</h4>
+            </div>
         </div>
     </div>
-    <script src="~/script/jquery.min.js"></script>
-    @RenderSection("scripts", false)
-    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/script/site.js"></script>
-
+    @RenderSection("scripts", false)
 </body>
 </html>
